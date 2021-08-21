@@ -23,7 +23,11 @@ export class TodoListComponent implements OnInit {
   add(name: string): void {
     name = name.trim();
     if (!name) { return; }
-    this.todos.push({ name } as Todo);
+    this.todos.push({name} as Todo);
+  }
+
+  delete(todo: Todo): void {
+    this.todos = this.todos.filter(t => t !== todo);
   }
 
 }

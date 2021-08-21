@@ -12,5 +12,6 @@
 <ul class="heroes">
     <li *ngFor="let todo of todos">
         <span class="badge">{{todo.id}}</span> {{todo.name}}
+        <button class="delete" title="delete todo"(click)="delete(todo)">x</button>
     </li>
 </ul>
