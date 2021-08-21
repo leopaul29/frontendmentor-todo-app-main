@@ -1,17 +1,37 @@
-
-<div>
-    <label for="new-todo">Todo: </label>
-    <input id="new-todo" #todoName />
+<div class="todoform">
+  <label for="new-todo">Todo: </label>
+  <input id="new-todo" #todoName placeholder="Create a new todo..." />
   
-    <!-- (click) passes input value to add() and then clears the input -->
-    <button class="add-button" (click)="add(todoName.value); todoName.value=''">
-      Add Todo
-    </button>
-  </div>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button class="add-button" (click)="add(todoName.value); todoName.value=''">
+    Add Todo
+  </button>
+</div>
 
-<ul class="heroes">
-    <li *ngFor="let todo of todos">
-        <span class="badge">{{todo.id}}</span> {{todo.name}}
+
+  <div class="todolist">
+    <div *ngFor="let todo of todos" class="todolist__item">
+      <div class="complete">
+        <input type="checkbox" name="complete" id="complete">
+        <span class="badge">{{todo.id}}</span>
         <button class="delete" title="delete todo"(click)="delete(todo)">x</button>
-    </li>
-</ul>
+      </div>
+      <div class="label">{{todo.name}}</div>
+    </div>
+  </div>
+  
+  <nav class="todonav">
+    <div class="todonav__item todonav__left">
+      <!-- Add dynamic number --> items left
+    </div>
+    <div class="todonav__item todonav__center">
+      <ul class="navfilter">
+        <li class="navfilter__item">All</li>
+        <li class="navfilter__item">Active</li>
+        <li class="navfilter__item">Completed</li>
+      </ul>
+    </div>
+    <div class="todonav__item todonav__right">
+      Clear Completed
+    </div>    
+  </nav>
