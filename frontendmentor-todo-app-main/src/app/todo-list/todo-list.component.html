@@ -1,7 +1,12 @@
-<div class="todoform">
-  <label for="new-todo">Todo: </label>
-  <input id="new-todo" #todoName placeholder="Create a new todo..." />
-  
+<header class="header">
+  <h1 class="header__title">Todo</h1>
+  <span class="header__darkmode">darkmode</span>
+</header>
+
+<div class="todoform tile light">
+  <input type="checkbox" disabled>
+  <input id="new-todo" #todoName placeholder="Create a new todo..." class="item_label" />
+
   <!-- (click) passes input value to add() and then clears the input -->
   <button class="add-button" (click)="add(todoName.value); todoName.value=''">
     Add Todo
@@ -9,29 +14,33 @@
 </div>
 
 
-  <div class="todolist">
-    <div *ngFor="let todo of todos" class="todolist__item">
-      <div class="complete">
-        <input type="checkbox" name="complete" id="complete">
-        <span class="badge">{{todo.id}}</span>
-        <button class="delete" title="delete todo"(click)="delete(todo)">x</button>
-      </div>
-      <div class="label">{{todo.name}}</div>
+<div class="todolist tile light">
+  <div *ngFor="let todo of todos" class="todolist__item">
+    <div class="complete">
+      <input type="checkbox" name="complete" class="complete">
+      <span class="badge">{{todo.id}}</span>
+      <button class="delete" title="delete todo" (click)="delete(todo)">x</button>
     </div>
+    <div class="item_label">{{todo.name}}</div>
   </div>
-  
+
   <nav class="todonav">
-    <div class="todonav__item todonav__left">
+    <div class="todonav__item nav_item">
       <!-- Add dynamic number --> items left
     </div>
-    <div class="todonav__item todonav__center">
+    <div class="todonav__item ">
       <ul class="navfilter">
-        <li class="navfilter__item">All</li>
-        <li class="navfilter__item">Active</li>
-        <li class="navfilter__item">Completed</li>
+        <li class="nav_item">All</li>
+        <li class="nav_item">Active</li>
+        <li class="nav_item">Completed</li>
       </ul>
     </div>
-    <div class="todonav__item todonav__right">
+    <div class="todonav__item nav_item ">
       Clear Completed
-    </div>    
+    </div>
   </nav>
+</div>
+
+<footer class="footer">
+  Drag and drop to reorder list
+</footer>

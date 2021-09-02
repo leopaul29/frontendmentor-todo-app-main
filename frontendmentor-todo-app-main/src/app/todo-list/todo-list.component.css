@@ -1,0 +1,70 @@
+/* header */
+.header {
+  margin: 80px 0px 80px 0px;
+  display: flex;
+  justify-content: space-between;
+}
+.header__title {
+  font-size: 48px;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+}
+.darkmode:hover {
+  cursor: pointer;
+}
+
+/* lightmode / darkmode*/
+.light {
+  background-color: white;
+}
+/* common */
+.tile {
+  margin: 20px 0px 20px 0px;
+  border-radius: 5px;
+}
+/* form */
+.todoform {
+  padding: 20px;
+}
+
+/** todolist **/
+.todolist__item {
+  padding: 20px;
+  border-bottom: 1px solid;
+  display: flex;
+  flex-direction: row;
+}
+.complete {
+}
+.badge {
+  display: none;
+}
+.delete {
+  display: none;
+}
+.item_label {
+  margin-left: 20px;
+}
+
+.todonav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  padding: 20px;
+}
+.nav_item:hover {
+  cursor: pointer;
+}
+.navfilter {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+/* footer */
+.footer {
+  margin-top: 60px;
+  text-align: center;
+}
