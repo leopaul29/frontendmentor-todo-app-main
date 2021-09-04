@@ -5,12 +5,11 @@ import { TODOS } from '../mock-todos';
 @Component({
   selector: 'app-todo-list',
   templateUrl: './todo-list.component.html',
-  styleUrls: ['./todo-list.component.css']
+  styleUrls: ['./todo-list.component.css'],
 })
 export class TodoListComponent implements OnInit {
-
   todos: Todo[] = [];
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
     this.getTodos();
@@ -22,12 +21,17 @@ export class TodoListComponent implements OnInit {
 
   add(name: string): void {
     name = name.trim();
-    if (!name) { return; }
-    this.todos.push({name} as Todo);
+    if (!name) {
+      return;
+    }
+    this.todos.push({ name } as Todo);
   }
 
   delete(todo: Todo): void {
-    this.todos = this.todos.filter(t => t !== todo);
+    this.todos = this.todos.filter((t) => t !== todo);
   }
 
+  countCompleteItem(): number {
+    return this.todos.filter((item) => item.complete === false).length;
+  }
 }
