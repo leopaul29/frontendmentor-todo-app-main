@@ -9,7 +9,12 @@ import { TODOS } from '../mock-todos';
 })
 export class TodoListComponent implements OnInit {
   todos: Todo[] = [];
-  constructor() {}
+  completeTodos: Todo[] = [];
+  completeCount: number = 0;
+
+  constructor() {
+    this.getCompleted();
+  }
 
   ngOnInit(): void {
     this.getTodos();
@@ -31,7 +36,11 @@ export class TodoListComponent implements OnInit {
     this.todos = this.todos.filter((t) => t !== todo);
   }
 
-  countCompleteItem(): number {
-    return this.todos.filter((item) => item.complete === false).length;
+  getCompleted() {
+    this.completeTodos = this.todos.filter((t) => {
+      return t.complete;
+    });
+    this.completeCount = this.completeTodos.length;
+    //alert(this.selected_games);
   }
 }

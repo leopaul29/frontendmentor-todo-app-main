@@ -17,7 +17,8 @@
 <div class="todolist tile light">
   <div *ngFor="let todo of todos" class="todolist__item">
     <div class="complete">
-      <input type="checkbox" name="complete" class="complete">
+      <input type="checkbox" name="complete" class="complete" (change)="getCompleted()" value="{{todo.complete}}"
+        [(ngModel)]="todo.complete">
       <span class="badge">{{todo.id}}</span>
       <button class="delete" title="delete todo" (click)="delete(todo)">x</button>
     </div>
@@ -26,7 +27,7 @@
 
   <nav class="todonav">
     <div class="todonav__item nav_item">
-      {{countCompleteItem()}} items left
+      {{this.completeCount}} items left
     </div>
     <div class="todonav__item ">
       <ul class="navfilter">

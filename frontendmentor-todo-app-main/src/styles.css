@@ -37,10 +37,7 @@ ul {
 body {
   font-size: 18px;
   font-family: "Josefin_Sans_reg";
-  max-height: 100vh;
-  max-width: 1440px;
   background-color: aquamarine;
-  margin: auto;
 }
 
 @font-face {
