@@ -15,7 +15,7 @@
 
 
 <div class="todolist tile light">
-  <div *ngFor="let todo of todos" class="todolist__item">
+  <div *ngFor="let todo of showTodos" class="todolist__item">
     <div class="complete">
       <input type="checkbox" name="complete" class="complete" (change)="getCompleted()" value="{{todo.complete}}"
         [(ngModel)]="todo.complete">
@@ -31,9 +31,9 @@
     </div>
     <div class="todonav__item ">
       <ul class="navfilter">
-        <li class="nav_item">All</li>
-        <li class="nav_item">Active</li>
-        <li class="nav_item">Completed</li>
+        <li class="nav_item" (click)="sortAll()">All</li>
+        <li class="nav_item" (click)="sortActive()">Active</li>
+        <li class="nav_item" (click)="sortCompleted()">Completed</li>
       </ul>
     </div>
     <div class="todonav__item nav_item ">

@@ -9,6 +9,7 @@ import { TODOS } from '../mock-todos';
 })
 export class TodoListComponent implements OnInit {
   todos: Todo[] = [];
+  showTodos: Todo[] = [];
   completeTodos: Todo[] = [];
   completeCount: number = 0;
 
@@ -22,6 +23,7 @@ export class TodoListComponent implements OnInit {
 
   getTodos(): void {
     this.todos = TODOS;
+    this.sortAll();
   }
 
   add(name: string): void {
@@ -37,10 +39,29 @@ export class TodoListComponent implements OnInit {
   }
 
   getCompleted() {
-    this.completeTodos = this.todos.filter((t) => {
+    this.completeTodos = this.showTodos.filter((t) => {
       return t.complete;
     });
     this.completeCount = this.completeTodos.length;
     //alert(this.selected_games);
+  }
+
+  sortAll(): void {
+    this.showTodos = this.todos;
+    this.getCompleted();
+  }
+
+  sortActive(): void {
+    this.showTodos = this.todos.filter((t) => {
+      return !t.complete;
+    });
+    this.getCompleted();
+  }
+
+  sortCompleted(): void {
+    this.showTodos = this.todos.filter((t) => {
+      return t.complete;
+    });
+    this.getCompleted();
   }
 }
