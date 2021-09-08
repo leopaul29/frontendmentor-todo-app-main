@@ -64,4 +64,11 @@ export class TodoListComponent implements OnInit {
     });
     this.getCompleted();
   }
+
+  clearComplete(): void {
+    this.todos = this.todos.filter((t) => {
+      return !t.complete;
+    });
+    this.sortAll();
+  }
 }
