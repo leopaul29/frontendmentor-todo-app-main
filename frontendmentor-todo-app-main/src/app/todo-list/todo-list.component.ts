@@ -10,15 +10,14 @@ import { TODOS } from '../mock-todos';
 export class TodoListComponent implements OnInit {
   todos: Todo[] = [];
   showTodos: Todo[] = [];
-  completeTodos: Todo[] = [];
+  leftTodos: Todo[] = [];
   completeCount: number = 0;
 
-  constructor() {
-    this.getCompleted();
-  }
+  constructor() {}
 
   ngOnInit(): void {
     this.getTodos();
+    this.setCompleted();
   }
 
   getTodos(): void {
@@ -38,31 +37,28 @@ export class TodoListComponent implements OnInit {
     this.todos = this.todos.filter((t) => t !== todo);
   }
 
-  getCompleted() {
-    this.completeTodos = this.showTodos.filter((t) => {
-      return t.complete;
+  setCompleted() {
+    this.leftTodos = this.todos.filter((t) => {
+      return !t.complete;
     });
-    this.completeCount = this.completeTodos.length;
+    this.completeCount = this.leftTodos.length;
     //alert(this.selected_games);
   }
 
   sortAll(): void {
     this.showTodos = this.todos;
-    this.getCompleted();
   }
 
   sortActive(): void {
     this.showTodos = this.todos.filter((t) => {
       return !t.complete;
     });
-    this.getCompleted();
   }
 
   sortCompleted(): void {
     this.showTodos = this.todos.filter((t) => {
       return t.complete;
     });
-    this.getCompleted();
   }
 
   clearComplete(): void {

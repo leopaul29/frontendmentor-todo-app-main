@@ -5,19 +5,15 @@
 
 <div class="todoform tile light">
   <input type="checkbox" disabled>
-  <input id="new-todo" #todoName placeholder="Create a new todo..." class="item_label" />
-
-  <!-- (click) passes input value to add() and then clears the input -->
-  <button class="add-button" (click)="add(todoName.value); todoName.value=''">
-    Add Todo
-  </button>
+  <input id="new-todo" #todoName placeholder="Create a new todo..." class="item_label"
+    (keydown.enter)="add(todoName.value); todoName.value=''" />
 </div>
 
 
 <div class="todolist tile light">
   <div *ngFor="let todo of showTodos" class="todolist__item">
     <div class="complete">
-      <input type="checkbox" name="complete" class="complete" (change)="getCompleted()" value="{{todo.complete}}"
+      <input type="checkbox" name="complete" class="complete" (change)="setCompleted()" value="{{todo.complete}}"
         [(ngModel)]="todo.complete">
       <span class="badge">{{todo.id}}</span>
       <button class="delete" title="delete todo" (click)="delete(todo)">x</button>
