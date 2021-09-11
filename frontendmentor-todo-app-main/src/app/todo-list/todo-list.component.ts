@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import {
+  CdkDragDrop,
+  moveItemInArray,
+  transferArrayItem,
+} from '@angular/cdk/drag-drop';
 
 import { Todo } from '../todo';
 import { TODOS } from '../mock-todos';
@@ -66,5 +71,10 @@ export class TodoListComponent implements OnInit {
       return !t.complete;
     });
     this.sortAll();
+  }
+
+  /** drag and drop **/
+  reorderList(event: CdkDragDrop<Todo[]>) {
+    moveItemInArray(this.todos, event.previousIndex, event.currentIndex);
   }
 }
