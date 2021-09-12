@@ -1,3 +1,6 @@
+.darkmode {
+  height: 50px;
+}
 .darkmode:hover {
   cursor: pointer;
 }

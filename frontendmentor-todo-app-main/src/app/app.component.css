@@ -1,3 +1,9 @@
+body {
+  background-image: url('images/bg-desktop-light.jpg');
+  background-repeat: no-repeat;
+  background-position-x: center;
+  margin: auto;
+}
 .main {
   margin: auto;
   max-width: 740px;
