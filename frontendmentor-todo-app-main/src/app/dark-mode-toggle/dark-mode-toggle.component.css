@@ -1,0 +1,14 @@
+.darkmode:hover {
+  cursor: pointer;
+}
+.darkmode__icon {
+  height: 50px;
+  width: 50px;
+  background-repeat: no-repeat;
+}
+.sun {
+  background-image: url("../images/icon-sun.svg");
+}
+.sun {
+  background-image: url("../images/icon-moon.svg");
+}
