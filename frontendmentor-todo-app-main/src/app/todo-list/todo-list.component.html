@@ -6,7 +6,7 @@
 </header>
 
 <div class="todoform tile light">
-  <input type="checkbox" disabled>
+  <input type="checkbox" class="complete" disabled>
   <input id="new-todo" #todoName placeholder="Create a new todo..." class="item_label"
     (keydown.enter)="add(todoName.value); todoName.value=''" />
 </div>
