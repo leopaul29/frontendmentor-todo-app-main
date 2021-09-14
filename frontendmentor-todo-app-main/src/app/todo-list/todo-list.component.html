@@ -20,7 +20,7 @@
       <span class="badge">{{todo.id}}</span>
       <button class="delete" title="delete todo" (click)="delete(todo)">x</button>
     </div>
-    <div class="item_label">{{todo.name}}</div>
+    <div class="item_label" [ngClass]="{'item_label_completed' : todo.complete}">{{todo.name}}</div>
   </div>
 
   <nav class="todonav">

@@ -40,15 +40,16 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  cursor: pointer;
 }
 .complete {
 }
 /* https://stackoverflow.com/questions/1120879/css-checkbox-input-styling*/
-input[type=checkbox] {
+input[type="checkbox"] {
   position: relative;
   cursor: pointer;
 }
-input[type=checkbox]:before {
+input[type="checkbox"]:before {
   content: "";
   display: block;
   position: absolute;
@@ -56,9 +57,9 @@ input[type=checkbox]:before {
   height: 20px;
   top: 0;
   left: 0;
-  background-color:#e9e9e9;
+  background-color: #e9e9e9;
 }
-input[type=checkbox]:checked:before {
+input[type="checkbox"]:checked:before {
   content: "";
   display: block;
   position: absolute;
@@ -66,9 +67,9 @@ input[type=checkbox]:checked:before {
   height: 20px;
   top: 0;
   left: 0;
-  background-color:#1E80EF;
+  background-color: #1e80ef;
 }
-input[type=checkbox]:checked:after {
+input[type="checkbox"]:checked:after {
   content: "";
   display: block;
   width: 5px;
@@ -91,7 +92,10 @@ input[type=checkbox]:checked:after {
 .item_label {
   margin-left: 20px;
 }
-
+.item_label_completed {
+  text-decoration: line-through;
+  opacity: 0.3;
+}
 .todonav {
   display: flex;
   flex-direction: row;
