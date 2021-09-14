@@ -34,7 +34,7 @@ ul {
   list-style-type: none;
 }
 
-body {
+* {
   font-size: 18px;
   font-family: "Josefin_Sans_reg";
 }

@@ -17,6 +17,7 @@ export class TodoListComponent implements OnInit {
   showTodos: Todo[] = [];
   leftTodos: Todo[] = [];
   completeCount: number = 0;
+  filterID: number = 0;
 
   constructor() {}
 
@@ -52,18 +53,21 @@ export class TodoListComponent implements OnInit {
 
   sortAll(): void {
     this.showTodos = this.todos;
+    this.filterID = 0;
   }
 
   sortActive(): void {
     this.showTodos = this.todos.filter((t) => {
       return !t.complete;
     });
+    this.filterID = 1;
   }
 
   sortCompleted(): void {
     this.showTodos = this.todos.filter((t) => {
       return t.complete;
     });
+    this.filterID = 2;
   }
 
   clearComplete(): void {

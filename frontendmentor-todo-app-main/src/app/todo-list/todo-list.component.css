@@ -1,48 +1,8 @@
-/* header */
-.header {
-  padding: 80px 0px 30px 0px;
-  display: flex;
-  justify-content: space-between;
-}
-.header__title {
-  font-size: 38px;
-  text-transform: uppercase;
-  letter-spacing: 0.3em;
-  color: var(--very-Light-Gray);
-}
-.header__darkmode {
-}
-
-/* lightmode / darkmode*/
-.light {
-  background-color: white;
-}
 /* common */
 .tile {
   margin: 20px 0px 20px 0px;
   border-radius: 5px;
-}
-/* form */
-.todoform {
-  padding: 20px;
-}
-.todoform input {
-  border: none;
-}
-.todoform input {
-  border: none;
-}
-
-/** todolist **/
-.todolist__item {
-  padding: 20px;
-  border-bottom: 1px solid;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  cursor: pointer;
-}
-.complete {
+  border: 1px solid var;
 }
 /* https://stackoverflow.com/questions/1120879/css-checkbox-input-styling*/
 input[type="checkbox"] {
@@ -83,19 +43,72 @@ input[type="checkbox"]:checked:after {
   top: 2px;
   left: 6px;
 }
+/* lightmode / darkmode*/
+.light {
+  background-color: white;
+}
+
+/* header */
+.header {
+  padding: 80px 0px 30px 0px;
+  display: flex;
+  justify-content: space-between;
+}
+.header__title {
+  font-size: 38px;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--very-Light-Gray);
+}
+.header__darkmode {
+}
+/* tile */
+.tile {
+  border: 1px solid var(--light-Grayish-Blue);
+}
+
+/* form */
+.todoform input {
+  border: none;
+}
+.todoform input:focus {
+  outline: none;
+}
+
+/** todolist **/
+.todolist__item {
+  padding: 20px;
+  border-bottom: 1px solid var(--light-Grayish-Blue);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+}
+.todolist__item:hover .delete {
+  visibility: visible;
+}
+.todo_item{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.complete {
+}
 .badge {
   display: none;
 }
 .delete {
-  display: none;
+  /*visibility: hidden;*/
 }
 .item_label {
-  margin-left: 20px;
+  margin-left: 30px;
 }
-.item_label_completed {
+.item_label--completed {
   text-decoration: line-through;
   opacity: 0.3;
 }
+
+/* todonav */
 .todonav {
   display: flex;
   flex-direction: row;
@@ -106,17 +119,28 @@ input[type="checkbox"]:checked:after {
 .nav_item:hover {
   cursor: pointer;
 }
+.nav_item--active {
+  font-weight: bold;
+  color: var(--bright-blue);
+}
 .navfilter {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   gap: 10px;
 }
+.navfilter .nav_item:hover {
+  font-weight: bold;
+}
+.nav_left {
+  opacity: 0.5;
+}
 
 /* footer */
 .footer {
   margin-top: 60px;
   text-align: center;
+  opacity: 0.5;
 }
 
 /* -------------- */

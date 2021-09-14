@@ -5,33 +5,33 @@
   </span>
 </header>
 
-<div class="todoform tile light">
+<div class="todoform todolist__item tile light">
   <input type="checkbox" class="complete" disabled>
   <input id="new-todo" #todoName placeholder="Create a new todo..." class="item_label"
     (keydown.enter)="add(todoName.value); todoName.value=''" />
 </div>
-
 
 <div class="todolist tile light" cdkDropList (cdkDropListDropped)="reorderList($event)">
   <div *ngFor="let todo of showTodos" class="todolist__item" cdkDrag>
     <div class="complete">
       <input type="checkbox" name="complete" class="complete" (change)="setCompleted()" value="{{todo.complete}}"
         [(ngModel)]="todo.complete">
-      <span class="badge">{{todo.id}}</span>
-      <button class="delete" title="delete todo" (click)="delete(todo)">x</button>
     </div>
-    <div class="item_label" [ngClass]="{'item_label_completed' : todo.complete}">{{todo.name}}</div>
+    <div class="todo_item">
+      <div class="item_label" [ngClass]="{'item_label--completed' : todo.complete}">{{todo.name}}</div>
+      <div class="delete" title="delete todo" (click)="delete(todo)">x</div>
+    </div>
   </div>
 
   <nav class="todonav">
-    <div class="todonav__item nav_item">
+    <div class="todonav__item nav_item nav_left">
       {{this.completeCount}} items left
     </div>
     <div class="todonav__item ">
       <ul class="navfilter">
-        <li class="nav_item" (click)="sortAll()">All</li>
-        <li class="nav_item" (click)="sortActive()">Active</li>
-        <li class="nav_item" (click)="sortCompleted()">Completed</li>
+        <li class="nav_item" [ngClass]="{'nav_item--active' : filterID==0}" (click)="sortAll()">All</li>
+        <li class="nav_item" [ngClass]="{'nav_item--active' : filterID==1}" (click)="sortActive()">Active</li>
+        <li class="nav_item" [ngClass]="{'nav_item--active' : filterID==2}" (click)="sortCompleted()">Completed</li>
       </ul>
     </div>
     <div class="todonav__item nav_item" (click)="clearComplete()">
