@@ -43,11 +43,6 @@ input[type="checkbox"]:checked:after {
   top: 2px;
   left: 6px;
 }
-/* lightmode / darkmode*/
-.light {
-  background-color: white;
-}
-
 /* header */
 .header {
   padding: 80px 0px 30px 0px;
@@ -59,12 +54,6 @@ input[type="checkbox"]:checked:after {
   text-transform: uppercase;
   letter-spacing: 0.3em;
   color: var(--very-Light-Gray);
-}
-.header__darkmode {
-}
-/* tile */
-.tile {
-  border: 1px solid var(--light-Grayish-Blue);
 }
 
 /* form */
@@ -87,12 +76,10 @@ input[type="checkbox"]:checked:after {
 .todolist__item:hover .delete {
   visibility: visible;
 }
-.todo_item{
+.todo__item {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-}
-.complete {
 }
 .badge {
   display: none;
@@ -100,10 +87,10 @@ input[type="checkbox"]:checked:after {
 .delete {
   /*visibility: hidden;*/
 }
-.item_label {
+.item__label {
   margin-left: 30px;
 }
-.item_label--completed {
+.item__label--completed {
   text-decoration: line-through;
   opacity: 0.3;
 }
@@ -116,10 +103,10 @@ input[type="checkbox"]:checked:after {
 
   padding: 20px;
 }
-.nav_item:hover {
+.nav__item:hover {
   cursor: pointer;
 }
-.nav_item--active {
+.nav__item--active {
   font-weight: bold;
   color: var(--bright-blue);
 }
@@ -129,10 +116,10 @@ input[type="checkbox"]:checked:after {
   justify-content: space-between;
   gap: 10px;
 }
-.navfilter .nav_item:hover {
+.navfilter .nav__item:hover {
   font-weight: bold;
 }
-.nav_left {
+.nav__left {
   opacity: 0.5;
 }
 
@@ -143,7 +130,25 @@ input[type="checkbox"]:checked:after {
   opacity: 0.5;
 }
 
-/* -------------- */
+/** light **/
+
+/* tile */
+.light.tile {
+  background-color: var(--very-Light-Gray);
+  border: 1px solid var(--light-Grayish-Blue);
+}
+
+/** dark **/
+
+.dark.tile {
+  background-color: var(--Very-Dark-Desaturated-Blue);
+  border: 1px solid var(--Very-Dark-Grayish-Blue);
+}
+.dark .todo__item {
+  color: var(--Light-Grayish-Blue);
+}
+
+/* -----drag & drop--------- */
 .cdk-drop-list-dragging .cdk-drag {
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
