@@ -1,4 +1,5 @@
 <div class="darkmode">
-    <div class="darkmode__icon sun"></div>
-    <div class="darkmode__icon moon"></div>
+    <div class="darkmode__icon" [ngClass]="{'moon' : getDarkmodeValue(), 'sun':!getDarkmodeValue()}"
+        (click)="toggleDarkmode()">
+    </div>
 </div>
