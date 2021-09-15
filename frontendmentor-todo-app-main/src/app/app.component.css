@@ -1,14 +1,22 @@
 body {
-  background-image: url('images/bg-desktop-light.jpg');
   background-repeat: no-repeat;
   background-position-x: center;
   margin: auto;
+  min-height: 100vh;
+}
+body.light {
+  background-image: url("images/bg-desktop-light.jpg");
+  background-color: var(--very-Light-Gray);
+}
+body.dark {
+  background-image: url("images/bg-desktop-dark.jpg");
+  background-color: var(--Very-Dark-Blue);
 }
 .main {
   margin: auto;
   max-width: 740px;
 }
-.attribution{
+.attribution {
   position: absolute;
   bottom: 0;
   width: 100%;

@@ -13,7 +13,7 @@
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
 </head>
 
-<body>
+<body [ngClass]="{'dark' : getDarkmodeValue(), 'light':!getDarkmodeValue()}">
   <main class="main">
     <app-todo-list></app-todo-list>
   </main>
