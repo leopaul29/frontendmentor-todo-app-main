@@ -40,7 +40,7 @@ export class TodoListComponent implements OnInit {
   }
 
   delete(todo: Todo): void {
-    this.todos = this.todos.filter((t) => t !== todo);
+    this.showTodos = this.todos.filter((t) => t !== todo);
   }
 
   setCompleted() {

@@ -79,13 +79,20 @@ input[type="checkbox"]:checked:after {
 .todo__item {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
+  width: 100%;
 }
 .badge {
   display: none;
 }
 .delete {
-  /*visibility: hidden;*/
+  visibility: hidden;
+  background-image: url("../images/icon-cross.svg");
+  background-repeat: no-repeat;
+  width: 20px;
+}
+.todo__item:hover .delete {
+  visibility: visible;
 }
 .item__label {
   margin-left: 30px;
