@@ -91,9 +91,6 @@ input[type="checkbox"]:checked:after {
   background-repeat: no-repeat;
   width: 20px;
 }
-.todo__item:hover .delete {
-  visibility: visible;
-}
 .item__label {
   margin-left: 30px;
 }

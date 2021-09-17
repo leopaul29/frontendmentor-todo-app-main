@@ -40,19 +40,35 @@ export class TodoListComponent implements OnInit {
   }
 
   delete(todo: Todo): void {
-    this.showTodos = this.todos.filter((t) => t !== todo);
+    this.todos = this.todos.filter((t) => t !== todo);
+    this.updatecompleteCount();
+    this.displayTodos();
   }
 
-  setCompleted() {
+  setCompleted(): void {
+    this.updatecompleteCount();
+  }
+
+  updatecompleteCount(): void {
     this.leftTodos = this.todos.filter((t) => {
       return !t.complete;
     });
     this.completeCount = this.leftTodos.length;
-    //alert(this.selected_games);
+  }
+  displayTodos(): void {
+    this.showTodos = this.todos;
   }
 
+  clearComplete(): void {
+    this.todos = this.todos.filter((t) => {
+      return !t.complete;
+    });
+    this.sortAll();
+  }
+
+  /* todos filter */ 
   sortAll(): void {
-    this.showTodos = this.todos;
+    this.displayTodos();
     this.filterID = 0;
   }
 
@@ -70,12 +86,6 @@ export class TodoListComponent implements OnInit {
     this.filterID = 2;
   }
 
-  clearComplete(): void {
-    this.todos = this.todos.filter((t) => {
-      return !t.complete;
-    });
-    this.sortAll();
-  }
 
   /** drag and drop **/
   reorderList(event: CdkDragDrop<Todo[]>) {
