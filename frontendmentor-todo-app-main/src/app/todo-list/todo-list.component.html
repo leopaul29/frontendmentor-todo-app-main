@@ -12,7 +12,8 @@
     (keydown.enter)="add(todoName.value); todoName.value=''" />
 </div>
 
-<div class="todolist tile" [ngClass]="{'dark' : darkmodeToggle.getDarkmodeValue(), 'light':!darkmodeToggle.getDarkmodeValue()}" cdkDropList
+<div class="todolist tile"
+  [ngClass]="{'dark' : darkmodeToggle.getDarkmodeValue(), 'light':!darkmodeToggle.getDarkmodeValue()}" cdkDropList
   (cdkDropListDropped)="reorderList($event)">
   <div *ngFor="let todo of showTodos" class="todolist__item"
     [ngClass]="{'dark' : darkmodeToggle.getDarkmodeValue(), 'light':!darkmodeToggle.getDarkmodeValue()}" cdkDrag>
