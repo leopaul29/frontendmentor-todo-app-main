@@ -44,6 +44,6 @@
   </nav>
 </div>
 
-<footer class="footer">
+<footer class="footer" [ngClass]="{'dark' : darkmodeToggle.getDarkmodeValue(), 'light':!darkmodeToggle.getDarkmodeValue()}">
   Drag and drop to reorder list
 </footer>

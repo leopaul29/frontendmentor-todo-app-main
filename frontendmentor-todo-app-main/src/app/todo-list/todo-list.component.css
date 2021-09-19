@@ -1,10 +1,4 @@
-/* common */
-.tile {
-  margin: 20px 0px 20px 0px;
-  border-radius: 5px;
-  border: 1px solid var;
-}
-
+/* input */
 input {
   border: none;
   background-color: transparent;
@@ -30,12 +24,25 @@ input[type="checkbox"]:checked:after {
   border-radius: 50%;
 }
 input[type="checkbox"]::before {
-  background-color: #e9e9e9;
+  background-color: var(--very-Light-Gray);
+  border: 1px solid var(--very-Light-Grayish-Blue);
 }
+/*input[type="checkbox"]:hover::before {
+  background-color: var(--very-Light-Gray);
+  border: 1px solid
+    linear-gradient(
+      139deg,
+      var(--bcg-gradient-1) 0%,
+      var(--bcg-gradient-2) 100%
+    );
+}*/
 input[type="checkbox"]:checked:before {
   background-color: #1e80ef;
-  background: linear-gradient(139deg, var(--bcg-gradient-1) 0%, var(--bcg-gradient-2) 100%);
-
+  background: linear-gradient(
+    139deg,
+    var(--bcg-gradient-1) 0%,
+    var(--bcg-gradient-2) 100%
+  );
 }
 input[type="checkbox"]:checked:after {
   background-image: url("../images/icon-check.svg");
@@ -56,11 +63,16 @@ input[type="checkbox"]:checked:after {
 }
 
 /* form */
-
-/** todolist **/
+.todolist {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.tile {
+  margin: 20px 0px 20px 0px;
+  border-radius: 5px;
+  border: 1px solid var;
+}
 .todolist__item {
   padding: 20px;
-  border-bottom: 1px solid var(--light-Grayish-Blue);
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -106,6 +118,7 @@ input[type="checkbox"]:checked:after {
 }
 .nav__item:hover {
   cursor: pointer;
+  font-weight: bold;
 }
 .nav__item--active {
   font-weight: bold;
@@ -117,8 +130,8 @@ input[type="checkbox"]:checked:after {
   justify-content: space-between;
   gap: 10px;
 }
-.navfilter .nav__item:hover {
-  font-weight: bold;
+.nav__left:hover {
+  font-weight: normal;
 }
 .nav__left {
   opacity: 0.5;
@@ -135,6 +148,10 @@ input[type="checkbox"]:checked:after {
   font-size: 15px;
 }
 
+.dark.footer{
+  color: var(--Light-Grayish-Blue);
+}
+
 /** light **/
 
 /* tile */
@@ -142,18 +159,24 @@ input[type="checkbox"]:checked:after {
   background-color: var(--very-Light-Gray);
   border: 1px solid var(--light-Grayish-Blue);
 }
+.light .todolist__item{
+border-bottom: 1px solid var(--light-Grayish-Blue);
+}
 
 /** dark **/
 
 .dark.tile {
   background-color: var(--Very-Dark-Desaturated-Blue);
-  border: 1px solid var(--Very-Dark-Grayish-Blue);
+  border: 1px solid var(--Very-Dark-Grayish-Blue-1);
 }
 .dark .todo__item {
   color: var(--Light-Grayish-Blue);
 }
-.dark .todonav__item {
+.dark .nav__item {
   color: var(--Light-Grayish-Blue);
+}
+.dark .todolist__item{
+border-bottom: 1px solid var(--Very-Dark-Grayish-Blue-3);
 }
 
 /* -----drag & drop--------- */
@@ -161,5 +184,6 @@ input[type="checkbox"]:checked:after {
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
 .cdk-drag-animating {
-  transition: transform 300ms cubic-bezier(0, 0, 0.2, 1);
+  /*transition: transform 300ms cubic-bezier(0, 0, 0.2, 1);*/
+  visibility: hidden;
 }
