@@ -5,7 +5,8 @@
   --desktop-size: 1440px;
   /** primary color **/
   --bright-blue: hsl(220, 98%, 61%);
-  --bcg-gradient: hsl(192, 100%, 67%);
+  --bcg-gradient-1: hsl(192, 100%, 67%);
+  --bcg-gradient-2: hsl(280, 87%, 65%);
 
   /** Light Theme **/
   --very-Light-Gray: hsl(0, 0%, 98%);

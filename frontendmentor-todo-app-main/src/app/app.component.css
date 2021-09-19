@@ -15,6 +15,7 @@ body.dark {
 .main {
   margin: auto;
   max-width: 740px;
+  padding: 0px 50px 0px 50px;
 }
 .attribution {
   position: absolute;
