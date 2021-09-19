@@ -15,8 +15,7 @@
 <div class="todolist tile"
   [ngClass]="{'dark' : darkmodeToggle.getDarkmodeValue(), 'light':!darkmodeToggle.getDarkmodeValue()}" cdkDropList
   (cdkDropListDropped)="reorderList($event)">
-  <div *ngFor="let todo of showTodos" class="todolist__item"
-    [ngClass]="{'dark' : darkmodeToggle.getDarkmodeValue(), 'light':!darkmodeToggle.getDarkmodeValue()}" cdkDrag>
+  <div *ngFor="let todo of showTodos" class="todolist__item" cdkDrag>
     <div class="complete">
       <input type="checkbox" name="complete" class="complete" (change)="setCompleted()" value="{{todo.complete}}"
         [(ngModel)]="todo.complete">
@@ -32,18 +31,31 @@
       {{this.completeCount}} items left
     </div>
     <div class="todonav__item ">
-      <ul class="navfilter">
+      <ul class="navfilter navfilter--desktop">
         <li class="nav__item" [ngClass]="{'nav__item--active' : filterID==0}" (click)="sortAll()">All</li>
         <li class="nav__item" [ngClass]="{'nav__item--active' : filterID==1}" (click)="sortActive()">Active</li>
         <li class="nav__item" [ngClass]="{'nav__item--active' : filterID==2}" (click)="sortCompleted()">Completed</li>
       </ul>
     </div>
-    <div class="todonav__item nav__item" (click)="clearComplete()">
+    <div class="todonav__item nav__item nav__complete" (click)="clearComplete()">
       Clear Completed
     </div>
   </nav>
 </div>
 
-<footer class="footer" [ngClass]="{'dark' : darkmodeToggle.getDarkmodeValue(), 'light':!darkmodeToggle.getDarkmodeValue()}">
+<nav class="todonav todonav--mobile tile"
+  [ngClass]="{'dark' : darkmodeToggle.getDarkmodeValue(), 'light':!darkmodeToggle.getDarkmodeValue()}">
+  <div class="todonav__item ">
+    <ul class="navfilter">
+      <li class="nav__item" [ngClass]="{'nav__item--active' : filterID==0}" (click)="sortAll()">All</li>
+      <li class="nav__item" [ngClass]="{'nav__item--active' : filterID==1}" (click)="sortActive()">Active</li>
+      <li class="nav__item" [ngClass]="{'nav__item--active' : filterID==2}" (click)="sortCompleted()">Completed</li>
+    </ul>
+  </div>
+</nav>
+
+
+<footer class="footer"
+  [ngClass]="{'dark' : darkmodeToggle.getDarkmodeValue(), 'light':!darkmodeToggle.getDarkmodeValue()}">
   Drag and drop to reorder list
 </footer>
