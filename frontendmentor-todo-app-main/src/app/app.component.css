@@ -22,4 +22,11 @@ body.dark {
   bottom: 0;
   width: 100%;
   margin: auto;
+  font-size: 12px;
+}
+.light .attribution {
+  color: black;
+}
+.dark .attribution {
+  color: white;
 }
