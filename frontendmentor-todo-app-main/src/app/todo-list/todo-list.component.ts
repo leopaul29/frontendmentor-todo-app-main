@@ -17,7 +17,7 @@ export class TodoListComponent implements OnInit {
   showTodos: Todo[] = [];
   leftTodos: Todo[] = [];
   completeCount: number = 0;
-  filterID: number = 0;
+  filterID: number = 0; // 0: All - 1: Active - 2: Completed
 
   constructor() {}
 
@@ -47,6 +47,7 @@ export class TodoListComponent implements OnInit {
 
   setCompleted(): void {
     this.updatecompleteCount();
+    if (this.filterID == 1) this.sortActive();
   }
 
   updatecompleteCount(): void {
@@ -66,7 +67,7 @@ export class TodoListComponent implements OnInit {
     this.sortAll();
   }
 
-  /* todos filter */ 
+  /* todos filter */
   sortAll(): void {
     this.displayTodos();
     this.filterID = 0;
@@ -85,7 +86,6 @@ export class TodoListComponent implements OnInit {
     });
     this.filterID = 2;
   }
-
 
   /** drag and drop **/
   reorderList(event: CdkDragDrop<Todo[]>) {
