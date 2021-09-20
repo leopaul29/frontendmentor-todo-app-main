@@ -18,7 +18,8 @@ body.dark {
   padding: 0px 50px 0px 50px;
 }
 .attribution {
-  position: absolute;
+  position: fixed;
+  left: 0;
   bottom: 0;
   width: 100%;
   margin: auto;

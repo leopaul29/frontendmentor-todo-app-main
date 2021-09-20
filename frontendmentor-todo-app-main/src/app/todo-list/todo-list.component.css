@@ -3,7 +3,7 @@ input {
   border: none;
   background-color: transparent;
 }
-input:focus {
+input:focus:focus-visible {
   outline: none;
 }
 /* https://stackoverflow.com/questions/1120879/css-checkbox-input-styling*/
@@ -53,6 +53,11 @@ input[type="checkbox"]:checked:after {
   background-repeat: no-repeat;
   background-position: center;
 }
+.nav__complete button{
+  background-color: transparent;
+  border: none;
+}
+
 /* header */
 .header {
   padding: 80px 0px 30px 0px;
@@ -167,9 +172,16 @@ input[type="checkbox"]:checked:after {
   font-weight: bold;
   color: var(--bright-blue);
 }
-.light .nav__complete:hover {
+.light .nav__complete button{
+  color: var(--dark-Grayish-Blue);
+}
+.light .nav__complete:hover button{
   color: var(--very-Dark-Grayish-Blue-1);
   cursor: pointer;
+}
+.light #new-todo{
+  color: var(--Very-Dark-Blue);
+  
 }
 /** dark **/
 
@@ -196,11 +208,17 @@ input[type="checkbox"]:checked:after {
   font-weight: bold;
   color: var(--bright-blue);
 }
-.dark .nav__complete:hover {
+.dark .nav__complete button{
+  color: var(--Very-Dark-Grayish-Blue-2);
+}
+.dark .nav__complete:hover button{
   color: var(--Light-Grayish-Blue);
   cursor: pointer;
 }
-
+.dark #new-todo{
+  color: var(--Light-Grayish-Blue);
+  
+}
 .dark.footer {
   color: var(--Light-Grayish-Blue);
 }

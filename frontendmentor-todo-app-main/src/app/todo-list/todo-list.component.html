@@ -1,22 +1,25 @@
-<header class="header">
+<div class="header">
   <h1 class="header__title">Todo</h1>
   <span class="header__darkmode">
     <app-dark-mode-toggle #darkmodeToggle></app-dark-mode-toggle>
   </span>
-</header>
-
-<div class="todoform todolist__item tile"
-  [ngClass]="{'dark' : darkmodeToggle.getDarkmodeValue(), 'light':!darkmodeToggle.getDarkmodeValue()}">
-  <input aria-label="todo-complete" type="checkbox" class="complete" disabled>
-  <input aria-label="todo-name" id="new-todo" #todoName placeholder="Create a new todo..." class="item__label"
-    (keydown.enter)="add(todoName.value); todoName.value=''" />
 </div>
 
-<div role="todos" class="todolist tile"
+<form class="todoform todolist__item tile"
+  [ngClass]="{'dark' : darkmodeToggle.getDarkmodeValue(), 'light':!darkmodeToggle.getDarkmodeValue()}">
+  <label for="todo-complete"></label>
+  <input name="todo-complete" id="todo-complete" type="checkbox" class="complete" disabled>
+  <label for="new-todo"></label>
+  <input name="new-todo" id="new-todo" #todoName placeholder="Create a new todo..." class="item__label"
+    (keydown.enter)="add(todoName.value); todoName.value=''" />
+</form>
+
+<ul role="todos" class="todolist tile"
   [ngClass]="{'dark' : darkmodeToggle.getDarkmodeValue(), 'light':!darkmodeToggle.getDarkmodeValue()}" cdkDropList
   (cdkDropListDropped)="reorderList($event)">
-  <div *ngFor="let todo of showTodos" class="todolist__item" cdkDrag>
+  <li *ngFor="let todo of showTodos" class="todolist__item" cdkDrag>
     <div class="complete">
+      <label for="todo-complete"></label>
       <input aria-label="todo-complete" type="checkbox" name="complete" class="complete" (change)="setCompleted()"
         value="{{todo.complete}}" [(ngModel)]="todo.complete">
     </div>
@@ -24,24 +27,26 @@
       <div class="item__label" [ngClass]="{'item__label--completed' : todo.complete}">{{todo.name}}</div>
       <div class="delete" title="delete todo" (click)="delete(todo)"></div>
     </div>
-  </div>
+  </li>
+  <li>
 
-  <nav class="todonav">
-    <div class="todonav__item nav__item nav__left">
-      {{this.completeCount}} items left
-    </div>
-    <div class="todonav__item ">
-      <ul class="navfilter navfilter--desktop">
-        <li class="nav__item" [ngClass]="{'nav__item--active' : filterID==0}" (click)="sortAll()">All</li>
-        <li class="nav__item" [ngClass]="{'nav__item--active' : filterID==1}" (click)="sortActive()">Active</li>
-        <li class="nav__item" [ngClass]="{'nav__item--active' : filterID==2}" (click)="sortCompleted()">Completed</li>
-      </ul>
-    </div>
-    <div class="todonav__item nav__item nav__complete" (click)="clearComplete()">
-      Clear Completed
-    </div>
-  </nav>
-</div>
+    <nav class="todonav" aria-live="assertive">
+      <div class="todonav__item nav__item nav__left">
+        {{this.completeCount}} items left
+      </div>
+      <div class="todonav__item ">
+        <ul class="navfilter navfilter--desktop">
+          <li class="nav__item" [ngClass]="{'nav__item--active' : filterID==0}" (click)="sortAll()">All</li>
+          <li class="nav__item" [ngClass]="{'nav__item--active' : filterID==1}" (click)="sortActive()">Active</li>
+          <li class="nav__item" [ngClass]="{'nav__item--active' : filterID==2}" (click)="sortCompleted()">Completed</li>
+        </ul>
+      </div>
+      <div class="todonav__item nav__item nav__complete" (click)="clearComplete()">
+        <button>Clear Completed</button>
+      </div>
+    </nav>
+  </li>
+</ul>
 
 <nav class="todonav todonav--mobile tile"
   [ngClass]="{'dark' : darkmodeToggle.getDarkmodeValue(), 'light':!darkmodeToggle.getDarkmodeValue()}">
