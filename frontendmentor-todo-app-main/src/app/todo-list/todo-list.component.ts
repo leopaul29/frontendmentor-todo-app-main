@@ -10,7 +10,11 @@ import { TODOS } from '../mock-todos';
 @Component({
   selector: 'app-todo-list',
   templateUrl: './todo-list.component.html',
-  styleUrls: ['./todo-list.component.css'],
+  styleUrls: [
+    './todo-list.component.css',
+    './todo-list-darkmode.css',
+    './todo-list-input.css',
+  ],
 })
 export class TodoListComponent implements OnInit {
   todos: Todo[] = [];

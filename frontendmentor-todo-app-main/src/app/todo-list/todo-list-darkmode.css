@@ -1,0 +1,103 @@
+/** light **/
+
+.light.tile {
+    background-color: var(--very-Light-Gray);
+    border: 1px solid var(--light-Grayish-Blue);
+  }
+  .light .todolist__item {
+    border-bottom: 1px solid var(--light-Grayish-Blue);
+  }
+  .light .todonav {
+    color: var(--dark-Grayish-Blue);
+  }
+  .light .navfilter .nav__item:hover {
+    color: var(--very-Dark-Grayish-Blue-1);
+  }
+  .light .navfilter .nav__item--active:hover {
+    color: var(--bright-blue);
+  }
+  .light .nav__item--active {
+    font-weight: bold;
+    color: var(--bright-blue);
+  }
+  .light .nav__complete button{
+    color: var(--dark-Grayish-Blue);
+  }
+  .light .nav__complete:hover button{
+    color: var(--very-Dark-Grayish-Blue-1);
+    cursor: pointer;
+  }
+  .light #new-todo{
+    color: var(--Very-Dark-Blue);
+    
+  }
+  /** dark **/
+  
+  .dark.tile {
+    background-color: var(--Very-Dark-Desaturated-Blue);
+    border: 1px solid var(--Very-Dark-Grayish-Blue-1);
+  }
+  .dark .todolist__item {
+    border-bottom: 1px solid var(--Very-Dark-Grayish-Blue-3);
+  }
+  .dark .todo__item {
+    color: var(--Light-Grayish-Blue);
+  }
+  .dark .todonav {
+    color: var(--Very-Dark-Grayish-Blue-2);
+  }
+  .dark .navfilter .nav__item:hover {
+    color: var(--Light-Grayish-Blue--hover);
+  }
+  .dark .navfilter .nav__item--active:hover {
+    color: var(--bright-blue);
+  }
+  .dark .nav__item--active {
+    font-weight: bold;
+    color: var(--bright-blue);
+  }
+  .dark .nav__complete button{
+    color: var(--Very-Dark-Grayish-Blue-2);
+  }
+  .dark .nav__complete:hover button{
+    color: var(--Light-Grayish-Blue);
+    cursor: pointer;
+  }
+  .dark #new-todo{
+    color: var(--Light-Grayish-Blue);
+    
+  }
+  .dark.footer {
+    color: var(--Light-Grayish-Blue);
+  }
+  
+  @media only screen and (max-width: 575px) {
+    .delete {
+      visibility: visible;
+    }
+    .todonav .navfilter--desktop {
+      display: none;
+    }
+    .todonav--mobile {
+      display: block;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+    .todonav--mobile .navfilter {
+      gap: 20px;
+    }
+    .dark.todonav--mobile {
+      color: var(--Very-Dark-Grayish-Blue-2);
+    }
+    .light.todonav--mobile {
+      color: var(--dark-Grayish-Blue);
+    }
+  }
+  @media only screen and (min-width: 575px) {
+    .todonav--mobile {
+      display: none;
+    }
+  }
+  

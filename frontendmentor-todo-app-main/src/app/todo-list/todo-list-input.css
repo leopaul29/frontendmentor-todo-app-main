@@ -1,0 +1,59 @@
+/* input */
+input {
+    border: none;
+    background-color: transparent;
+  }
+  input:focus:focus-visible {
+    outline: none;
+  }
+  /* https://stackoverflow.com/questions/1120879/css-checkbox-input-styling*/
+  input[type="checkbox"] {
+    position: relative;
+    cursor: pointer;
+  }
+  input[type="checkbox"]::before,
+  input[type="checkbox"]:checked:before,
+  input[type="checkbox"]:checked:after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    top: -5px;
+    left: -5px;
+    border-radius: 50%;
+  }
+  input[type="checkbox"]::before {
+    background-color: var(--very-Light-Gray);
+    border: 1px solid var(--very-Light-Grayish-Blue);
+  }
+  .dark input[type="checkbox"]::before {
+    background-color: var(--Very-Dark-Desaturated-Blue);
+    border: 1px solid var(--Very-Dark-Grayish-Blue-2);
+  }
+  /*input[type="checkbox"]:hover::before {
+    background-color: var(--very-Light-Gray);
+    border: 1px solid
+      linear-gradient(
+        139deg,
+        var(--bcg-gradient-1) 0%,
+        var(--bcg-gradient-2) 100%
+      );
+  }*/
+  input[type="checkbox"]:checked:before {
+    background-color: #1e80ef;
+    background: linear-gradient(
+      139deg,
+      var(--bcg-gradient-1) 0%,
+      var(--bcg-gradient-2) 100%
+    );
+  }
+  input[type="checkbox"]:checked:after {
+    background-image: url("../images/icon-check.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .nav__complete button{
+    background-color: transparent;
+    border: none;
+  }
